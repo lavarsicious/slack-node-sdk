@@ -40,6 +40,10 @@ class Slack
       username: options.username
       attachments: options.attachments
       link_names: options.link_names or 0
+      
+    for key of options
+      if options.hasOwnProperty(key) and !payload.hasOwnProperty(key)
+        payload[key] = options[key]
 
     payload[emoji.key] = emoji.val
 
